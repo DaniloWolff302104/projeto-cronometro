@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    height: 500px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+body{
+    background-color: black;
+}
+
+#caixa-numeros{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 350px;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.numeros{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+#caixa-botoes{
+    text-align: center;
+    margin-top: 20px;
+}
+.botoes{
+    color: rgb(38, 0, 255);
+    padding: 16px;
+    cursor: pointer;
+
+}
+
+.numero-verde{
+    color: rgb(150, 12, 12);
+}

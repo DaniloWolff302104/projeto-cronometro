@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Programação do zero - Crônometro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="imagens/missao-3.png" alt="">
+    <div id="caixa-numeros">
+        <span class="numeros"id="horas">00</span>
+        <span class="numeros">:</span>
+        <span class="numeros"id="minutos">00</span>
+        <span class="numeros">:</span>
+        <Span class="numeros"id="segundos">00</Span>
+        <span class="numeros">:</span>
+        <span class="numeros numero-verde"id="mili">00</span>
+    </div>
+    <div id="caixa-botoes">
+        <button class="botoes" id="start">Start</button>
+        <button class="botoes" id="stop">Stop</button>
+        <button class="botoes" id="reset">Reset</button>
+    </div>
+    
+
+    
+</body>
+<script>
+    let btnstart = document.getElementById("start")
+    let btnstop = document.getElementById("stop")
+    let btnreset = document.getElementById("reset")
+    let mili = document.getElementById("mili")
+    let segundos = document.getElementById("segundos")
+    let minutos = document.getElementById("minutos")
+    let horas = document.getElementById("horas")
+
+    let starTimer
+    let ms = 0
+    let seg = 0
+    let min = 0
+    let hr = 0
+    
+    function start(){
+        starTimer = setInterval(function() {
+            ms = ms + 1
+
+            if(ms == 100){
+                seg = seg + 1
+                
+                ms = 0
+            }
+
+            if(seg == 60){
+                min = min + 1
+                seg = 0
+            }
+
+            if(min == 60){
+                hr = hr + 1
+                min = 0
+            }
+
+
+            atualizaValor()
+        }, 10);
+
+        
+    }
+
+    function atualizaValor(){
+        mili.innerHTML = ms
+        segundos.innerHTML = seg
+        minutos.innerHTML = min
+        horas.innerHTML = hr
+    }
+
+    function stop(){
+        clearInterval(starTimer)
+    }  
+    
+    function reset(){
+        clearInterval(starTimer)
+        ms = 0
+        seg = 0
+        min = 0
+        hr = 0
+        atualizaValor()
+    }
+    
+    
+
+    btnstart.addEventListener("click", start)
+    btnstop.addEventListener("click", stop)
+    btnreset.addEventListener("click", reset)
+
+
+</script>
+
+</html>
